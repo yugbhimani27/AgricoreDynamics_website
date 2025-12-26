@@ -1978,28 +1978,31 @@ html {
   initial-value: 0;
 }
 
-/* ===== Global blurred nature background ===== */
+/* ===== GLOBAL BLURRED NATURE BACKGROUND ===== */
 
-body {
-  position: relative;
+html, body, #root {
+  height: 100%;
+  margin: 0;
 }
 
-body::before {
+#root {
+  position: relative;
+  background-image: url("./assets/nature-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* blur layer */
+#root::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image: url("./assets/nature-bg.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   filter: blur(20px);
   transform: scale(1.15);
   z-index: -1;
 }
-#root {
-  position: relative;
-  z-index: 1;
-}
-body {
-  background: red !important;
-}
+
