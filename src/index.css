@@ -1,44 +1,46 @@
-/* =========================
-   BASIC RESET (SAFE)
-   ========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================= */
+/* GLOBAL BACKGROUND IMAGE */
+/* ============================= */
+
+html, body, #root {
+  min-height: 100%;
+  background: url("/src/assets/nature-bg.jpg") center / cover no-repeat fixed;
 }
 
-html,
-body,
-#root {
-  height: 100%;
+/* Blurred overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: inherit;
+  filter: blur(20px);
+  transform: scale(1.15);
+  z-index: -1;
 }
 
-/* =========================
-   REPLACE WHITE BACKGROUND
-   ========================= */
-body {
-  background-image: url("./assets/nature-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+/* ============================= */
+/* GLOBAL OVERRIDE bg-white */
+/* ============================= */
 
-  /* this removes white */
-  background-color: transparent !important;
+/* Replace white backgrounds everywhere */
+.bg-white {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px);
 }
 
-/* =========================
-   KEEP CONTENT NORMAL
-   ========================= */
-#root {
-  min-height: 100vh;
+/* Common Tailwind variants */
+.bg-white\/10,
+.bg-white\/20,
+.bg-white\/30 {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px);
 }
 
-/* =========================
-   TAILWIND COMPATIBILITY
-   (does not override utilities)
-   ========================= */
-img {
-  display: block;
-  max-width: 100%;
+/* Borders that look too white */
+.border-white {
+  border-color: rgba(255, 255, 255, 0.25) !important;
 }
