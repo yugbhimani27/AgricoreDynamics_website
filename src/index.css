@@ -1978,30 +1978,25 @@ html {
   initial-value: 0;
 }
 
-/* ===== GLOBAL NATURE BACKGROUND ===== */
+/* ===== Global blurred nature background ===== */
+
 body {
-  background-image: url("/nature-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  position: relative;
 }
 
-/* Green overlay for readability */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(8, 30, 18, 0.65),
-    rgba(12, 46, 28, 0.85)
-  );
+  background-image: url("./assets/nature-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(20px);
+  transform: scale(1.15);
   z-index: -1;
 }
-
-/* Make sure app stays above overlay */
 #root {
   position: relative;
   z-index: 1;
 }
-
