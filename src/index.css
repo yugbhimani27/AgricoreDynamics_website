@@ -1034,13 +1034,7 @@ this is the code right now give a full code to replace this ,,, html, body, #roo
     background-color: var(--color-red-50);
   }
 
-  .bg-white {
-    background-color: var(--color-white);
-  }
-
-  .bg-white\/10 {
-    background-color: #ffffff1a;
-  }
+  
 
   @supports (color: color-mix(in lab, red, red)) {
     .bg-white\/10 {
@@ -1690,7 +1684,7 @@ this is the code right now give a full code to replace this ,,, html, body, #roo
 
 :root {
   --font-size: 16px;
-  --background: #fff;
+  
   --foreground: oklch(.145 0 0);
   --card: #fff;
   --card-foreground: oklch(.145 0 0);
@@ -2030,7 +2024,7 @@ html, body, #root {
 
 #root {
   position: relative;
-  background-image: url("./assets/nature-bg.jpg");
+  background-image: url("./assets/bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2041,7 +2035,7 @@ html, body, #root {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("./assets/nature-bg.jpg");
+  background-image: url("./assets/bg.jpg");
   background-size: cover;
   background-position: center;
   filter: blur(20px);
@@ -2060,4 +2054,13 @@ section,
 header,
 footer {
   background-color: transparent !important;
+}
+.root {
+  background-image: url("/assets/bg.jpg"); /* change name if needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+  z-index: 1;
 }
