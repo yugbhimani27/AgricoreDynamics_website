@@ -1,79 +1,81 @@
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-html,
-body,
-#root {
-  min-height: 100%;
-  background-image: url("./assets/nature-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body::before {
+
+/* BODY */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BACKGROUND IMAGE ONLY */
+.hero::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
-  background-image: url("./assets/nature-bg.jpg");
+  background-image: url("/src/assets/hero-bg.jpg"); /* 👈 image path */
   background-size: cover;
   background-position: center;
   filter: blur(14px);
-  transform: scale(1.1);
-  z-index: -1;
+  transform: scale(1.15);
+  z-index: 0;
 }
 
-
-
-/* ========================= */
-/* GLOBAL BACKGROUND IMAGE */
-/* ========================= */
-
-html,
-body,
-#root {
-  min-height: 100%;
-  background-image: url("/src/assets/nature-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-/* Blur overlay */
-body::before {
+/* DARK OVERLAY */
+.hero::after {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
-  background-image: inherit;
-  background-size: inherit;
-  background-position: inherit;
-  filter: blur(18px);
-  transform: scale(1.1);
-  z-index: -1;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
 }
 
-/* ========================= */
-/* REMOVE ALL WHITE SECTIONS */
-/* ========================= */
-
-section,
-main,
-article,
-div {
-  background-color: transparent !important;
+/* CONTENT (NOT BLURRED) */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #ffffff;
+  max-width: 800px;
+  padding: 20px;
 }
 
-/* Override Tailwind bg-white everywhere */
-.bg-white,
-.bg-white\/10,
-.bg-white\/20,
-.bg-white\/30 {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  backdrop-filter: blur(12px);
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-/* Border softening */
-.border-white {
-  border-color: rgba(255, 255, 255, 0.3) !important;
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #2ecc71;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  background: #27ae60;
+  transform: scale(1.05);
 }
