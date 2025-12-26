@@ -1,17 +1,26 @@
-/* ===== GLOBAL BACKGROUND LAYER (NON-DESTRUCTIVE) ===== */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -999;
+/* Make page cover full viewport */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  background-image: url("./assets/bg.jpg");
-  background-size: cover;
+/* Global background image */
+body {
+  background-image: url("./assets/bg.jpg");   /* image is in src/assets/bg.jpg */
+  background-size: cover;                     /* cover whole screen */
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;               /* optional: parallax-like */
+  color: #ffffff;                             /* adjust if text not visible */
+}
 
-  filter: blur(18px);
-  transform: scale(1.1);
+/* Example: remove solid white backgrounds on sections/containers */
+section,
+.container,
+.main,
+.card {
+  background-color: transparent;              /* or rgba(255,255,255,0.1) */
 }
 
 /* ===== ROOT HEIGHT FIX ===== */
