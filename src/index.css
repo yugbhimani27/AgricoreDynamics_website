@@ -1,3 +1,19 @@
+/* GLOBAL BLURRED BACKGROUND — non-destructive */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -9999;
+
+  background-image: url("/assets/bg.jpg"); /* change to your image */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  filter: blur(15px);
+  transform: scale(1.1);
+}
+
+
 html, body {
   background: none !important;
 }
